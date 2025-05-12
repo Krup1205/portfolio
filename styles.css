@@ -7,6 +7,8 @@
     --card-bg: #ffffff;
     --accent-color: #2563eb;
     --transition: all 0.3s ease;
+    --gradient-color-1: rgba(37, 99, 235, 0.25);
+    --gradient-color-2: rgba(29, 78, 216, 0.15);
 }
 
 /* Reset & Base Styles */
@@ -23,10 +25,39 @@ html {
 body {
     font-family: 'Inter', sans-serif;
     color: var(--text-color);
-    background: linear-gradient(120deg, #f8fafc 0%, #e0e7ef 50%, #c7d2fe 100%);
-    background-color: #f8fafc;
+    background: var(--bg-color);
     line-height: 1.6;
     transition: var(--transition);
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, var(--gradient-color-1) 0%, var(--gradient-color-2) 50%, transparent 70%);
+    animation: backgroundPulse 8s ease-in-out infinite;
+    z-index: -1;
+    pointer-events: none;
+}
+
+@keyframes backgroundPulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
 }
 
 body.dark-mode {
@@ -36,6 +67,8 @@ body.dark-mode {
     --bg-color: #18181b;
     --card-bg: #23232b;
     --accent-color: #60a5fa;
+    --gradient-color-1: rgba(96, 165, 250, 0.4);
+    --gradient-color-2: rgba(37, 99, 235, 0.3);
     background: linear-gradient(120deg, #23232b 0%, #18181b 100%);
 }
 
@@ -85,6 +118,29 @@ body.dark-mode .github-btn {
 body.dark-mode .btn:hover,
 body.dark-mode .github-btn:hover {
     background: var(--secondary-color);
+}
+
+body.dark-mode::before {
+    background: radial-gradient(circle at center, 
+        var(--gradient-color-1) 0%, 
+        var(--gradient-color-2) 50%, 
+        rgba(37, 99, 235, 0.1) 70%);
+    animation: darkModePulse 8s ease-in-out infinite;
+}
+
+@keyframes darkModePulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
 }
 
 .container {
@@ -214,6 +270,41 @@ body.dark-mode .github-btn:hover {
     max-width: 800px;
     position: relative;
     z-index: 1;
+}
+
+.hero-content h1 {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    border-right: 2px solid var(--primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 8s steps(40, end) infinite,
+               blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    37.5% {
+        width: 100%;
+    }
+    87.5% {
+        width: 100%;
+    }
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: var(--primary-color);
+    }
 }
 
 .typing-text {
