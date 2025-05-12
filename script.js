@@ -10,22 +10,25 @@ const body = document.body;
 
 // Check for saved theme preference or default to light
 const savedTheme = localStorage.getItem('theme') || 'light';
-body.setAttribute('data-theme', savedTheme);
-themeToggle.innerHTML = savedTheme === 'light' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+body.classList.toggle('dark-mode', savedTheme === 'dark');
+updateThemeIcon(savedTheme === 'dark');
 
 if (themeToggle) {
     themeToggle.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
-        // Optionally, change the icon
-        const icon = themeToggle.querySelector('i');
-        if (body.classList.contains('dark-mode')) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-        }
+        const isDarkMode = body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+        updateThemeIcon(isDarkMode);
     });
+}
+
+function updateThemeIcon(isDarkMode) {
+    const icon = themeToggle.querySelector('i');
+    if (isDarkMode) {
+        icon.className = 'fas fa-sun';
+    } else {
+        icon.className = 'fas fa-moon';
+    }
 }
 
 // Typing Effect
