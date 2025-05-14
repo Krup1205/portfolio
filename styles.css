@@ -200,6 +200,12 @@ body.dark-mode::before {
     animation: slideInLeft 0.5s ease-out;
 }
 
+.nav-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
 .nav-menu {
     display: flex;
     gap: 2rem;
