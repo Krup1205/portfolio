@@ -269,6 +269,8 @@ body.dark-mode::before {
     padding: 6rem 2rem;
     position: relative;
     background: transparent;
+    padding-top: 7rem;
+    padding-bottom: 3rem;
 }
 
 .hero-content {
@@ -392,14 +394,15 @@ body.dark-mode::before {
 
 /* About Section */
 .about {
-    padding: 6rem 0;
+    padding: 3rem 0;
     background: transparent;
+    scroll-margin-top: 7rem;
 }
 
 .section-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin: 0 0 1.5rem 0;
     color: var(--text-color);
 }
 
@@ -445,8 +448,9 @@ body.dark-mode::before {
 
 /* Skills Section */
 .skills {
-    padding: 6rem 0;
+    padding: 3rem 0;
     background: transparent;
+    scroll-margin-top: 7rem;
 }
 
 .skills-grid {
@@ -508,8 +512,14 @@ body.dark-mode::before {
 
 /* Projects Section */
 .projects {
-    padding: 6rem 0;
+    padding: 3rem 0;
     background: transparent;
+    scroll-margin-top: 7rem;
+}
+
+.projects .section-title {
+    margin-top: 0;
+    margin-bottom: 1.5rem;
 }
 
 .project-filters {
@@ -668,7 +678,8 @@ body.dark-mode::before {
 
 /* Contact Section */
 .contact {
-    padding: 4rem 0;
+    padding: 3rem 0;
+    scroll-margin-top: 7rem;
 }
 
 .contact-content {
@@ -1276,7 +1287,7 @@ body.dark-mode::before {
 
 /* Languages Section */
 .languages {
-    padding: 6rem 0;
+    padding: 3rem 0;
     background: var(--card-bg);
 }
 
@@ -1463,7 +1474,13 @@ body.dark-mode::before {
 }
 
 .hero, .about, .skills, .projects, .contact, .footer, .languages {
-    background: transparent;
+    padding: 3rem 0;
+    scroll-margin-top: 7rem;
+}
+
+.about, .skills, .projects, .contact, .languages {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 /* --- Unified Card Hover Effect and No Outline --- */
@@ -1519,4 +1536,8 @@ language-item:hover::before {
     text-overflow: ellipsis;
     background-repeat: no-repeat;
     background-position: right 1rem center;
+}
+
+#home {
+    scroll-margin-top: 0 !important;
 } 

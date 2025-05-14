@@ -262,4 +262,13 @@ document.querySelectorAll('.project-github').forEach(link => {
             window.open(githubUrl, '_blank', 'noopener,noreferrer');
         }
     });
-}); 
+});
+
+// Smooth scroll to top for Home button
+const homeLink = document.querySelector('a[href="#home"]');
+if (homeLink) {
+    homeLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+} 
