@@ -1544,4 +1544,19 @@ language-item:hover::before {
 
 #home {
     scroll-margin-top: 0 !important;
+}
+
+.cert-icon-img {
+    width: 3.5rem;
+    height: 3.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.certification-item:hover .cert-icon-img {
+    transform: scale(1.1);
 } 

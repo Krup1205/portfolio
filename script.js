@@ -224,6 +224,9 @@ function openCertificate(type) {
         case 'hackathon':
             certificateImage.src = 'certificates/hackathon.jpg';
             break;
+        case 'drone':
+            certificateImage.src = 'certificates/drone.jpg';
+            break;
     }
     
     // Show modal
