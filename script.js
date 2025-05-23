@@ -147,7 +147,14 @@ contactForm.addEventListener('submit', (e) => {
     submitButton.disabled = true;
 
     // Send email using EmailJS
-    emailjs.sendForm('service_lqgpexv', 'template_zeqfks7', contactForm)
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        subject: subject,
+        message: message
+    };
+
+    emailjs.send('service_lqgpexv', 'template_zeqfks7', templateParams)
         .then(() => {
             alert('Thank you for your message! I will get back to you soon.');
             contactForm.reset();
